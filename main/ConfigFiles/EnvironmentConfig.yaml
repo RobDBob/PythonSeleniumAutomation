@@ -1,0 +1,4 @@
+required_folders:
+  screenshots: screenshots
+  logging: testLogging
+  downloads: downloads

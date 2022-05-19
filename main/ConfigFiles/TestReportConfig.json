@@ -1,0 +1,14 @@
+{
+    "TestRailConnection":
+    {
+        "URL": "https://testrail.prod.company.com/",
+        "User": "testrail.automation@company.com",
+        "Password": "dv5W1psMCY8Nr.Y.O0nx-ixxCORDq1.XcDhEX5lML"
+    },
+    "FTPConnection":
+    {
+        "Address": "10.89.170.159",
+        "User": "test_ftp",
+        "Password": "NaszeLogi123"
+    }
+}

@@ -1,0 +1,16 @@
+.idea/*
+.idea/workspace.xml
+testLogging/
+screenshots/
+venv
+send_report.py
+*.pyc
+*.log
+*.patch
+*.iml
+*.png
+*.zip
+get_test_results.py
+default_config
+test_some.py
+output*.txt

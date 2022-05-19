@@ -1,0 +1,30 @@
+@Library('utils') _
+
+pipeline {
+    agent {
+        label "us-east-1 && env-prod"
+    }
+
+    triggers{
+      bitbucketPush()
+    }
+
+    stages {
+        stage ('Build Lens Automation Docker Image') {
+            steps {
+                script {
+                    docker.build('local/lens-automation-jenkins');
+                    creds = nexus.getCredentials('us-east-1', 'prod')
+                    nexus.publish(
+                        type: 'docker',
+                        env: 'prod',
+                        credentials: creds,
+                        dockerImage: 'local/lens-automation-jenkins',
+                        tag: 'stable',
+                        pushLatest: false, //defaults to true, will always push latest tag unless set to false
+                )
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,63 @@
+pipeline {
+     agent {
+         dockerfile {
+            filename 'Dockerfile'
+            label 'us-east-1 && env-int'
+         }
+    }
+    environment {
+        APP_NAME = 'QA-Framework-Common-UI'
+        SHORTCOMMIT = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
+        DEFAULT_VERSION = "SNAPSHOT.${env.BUILD_NUMBER}"
+        CURRENT_VERSION = "${env.TAG_NAME == null ? DEFAULT_VERSION : env.TAG_NAME}"
+    }
+    stages {
+         stage('build initialize'){
+            steps{
+                bitbucketStatusNotify(buildState: 'INPROGRESS')
+            }
+        }
+        //stage('test') {
+            // comment: tests to be added
+            //steps {
+            //   sh '''
+            //   python -m unittest discover -s wmscrape
+            //   python -m unittest discover -s examples
+            //   '''
+            //}
+        //}
+        stage('build') {
+            steps {
+                sh '''
+                # clean
+                rm -rf dist/*
+                # build package
+                pip install wheel
+                python setup.py sdist bdist_wheel
+                '''
+            }
+        }
+        stage('deploy') {
+            when {
+                buildingTag()
+            }
+            steps {
+              sh '''
+              set +x
+              secret=$(aws secretsmanager get-secret-value --region us-east-1 --secret-id liveservices-nexus-integration-jenkins | jq .SecretString | jq fromjson)
+              USER=$(echo $secret | jq -r .username)
+              PASSWORD=$(echo $secret | jq -r .password)
+              twine upload --repository-url https://nexus.prod.company.com/repository/qa-framework-common/ dist/*  -u ${USER} -p ${PASSWORD}
+              '''
+            }
+        }
+    }
+    post {
+        success {
+            bitbucketStatusNotify(buildState: 'SUCCESSFUL')
+        }
+        failure {
+            bitbucketStatusNotify(buildState: 'FAILED')
+        }
+    }
+}
