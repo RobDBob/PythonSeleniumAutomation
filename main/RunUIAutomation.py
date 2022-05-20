@@ -80,7 +80,7 @@ if __name__ == '__main__':
                               post_execution_cb=[ZipTools.zip_test_logs_cb,
                                                  ZipTools.zip_screenshots_cb])
 
-    # temp code as a replacement for nexus functionality while jenkins is being fixed
+    # temp code as a replacement for magic_repo functionality while jenkins is being fixed
     from CommonCode.HelperFunctions import try_execute
 
     try_execute(upload_stuff, parsed_args.current_config_file_name, parsed_args.build_number)

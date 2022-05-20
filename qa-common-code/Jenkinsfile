@@ -21,7 +21,7 @@ pipeline {
             // comment: tests to be added
             //steps {
             //   sh '''
-            //   python -m unittest discover -s wmscrape
+            //   python -m unittest discover -s trollo
             //   python -m unittest discover -s examples
             //   '''
             //}
@@ -44,10 +44,10 @@ pipeline {
             steps {
               sh '''
               set +x
-              secret=$(aws secretsmanager get-secret-value --region us-east-1 --secret-id liveservices-nexus-integration-jenkins | jq .SecretString | jq fromjson)
+              secret=$(aws secretsmanager get-secret-value --region us-east-1 --secret-id liveservices-magic_repo-integration-jenkins | jq .SecretString | jq fromjson)
               USER=$(echo $secret | jq -r .username)
               PASSWORD=$(echo $secret | jq -r .password)
-              twine upload --repository-url https://nexus.prod.company.com/repository/qa-framework-common/ dist/*  -u ${USER} -p ${PASSWORD}
+              twine upload --repository-url https://magic_repo.prod.company.com/repository/qa-framework-common/ dist/*  -u ${USER} -p ${PASSWORD}
               '''
             }
         }

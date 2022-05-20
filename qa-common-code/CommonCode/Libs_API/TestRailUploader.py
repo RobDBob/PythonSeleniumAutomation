@@ -128,7 +128,7 @@ class TestRailResultUploader(object):
 
     def _process_failed_class(self, failed_class, test_status):
         """
-        Addresses issue from WMAP-5535
+        Addresses issue from BeannieAP-5535
         :return:
         :param failed_class: i.e. 'setUpClass (TestsRestAPIBulkDownload.RegressionAPIBulkDownloadsTests)'
         """

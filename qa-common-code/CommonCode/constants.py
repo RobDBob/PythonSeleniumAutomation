@@ -1,1 +1,1 @@
-NEXUS_MAIN_URL = 'https://nexus.prod.company.com/#browse/browse:'
+magic_repo_MAIN_URL = 'https://magic_repo.prod.company.com/#browse/browse:'

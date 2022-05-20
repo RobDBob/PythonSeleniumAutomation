@@ -1,12 +1,7 @@
 {
     "TestAutomation": {
-        "SITE_URL": "https://lens-dev.company.com/lower48/production",
-        "DISCOVERY_SITE_URL": "https://lens-dev.company.com/discovery",
-        "SITE_USER": "testrail.automation@company.com",
-        "SITE_PASSWORD": "Un1xP@ss12",
-        "API_URL": "https://lens-api-dev.company.com",
-        "ORIGIN_URL": "https://lens-dev.company.com",
-        "TOKEN_URL": "https://identity-uat.company.com/sso/tokens"
+        "SITE_URL": "https://company.com/lower48/production",
+        "TOKEN_URL": "https://company.com/sso/tokens"
     },
     "TestRun_Detail": {
         "RUN_ID": 49,

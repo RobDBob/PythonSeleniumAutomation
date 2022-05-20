@@ -5,8 +5,8 @@ from TestHelpers.TestsVerificationMethods.TestsActivityAndTrendChart import Regr
 
 class RegressionTestActivityAndTrendChartByBasin(RegressionTestActivityAndTrendChart):
     """
-    Original implementation - JIRA WMAP-7958
-    Updates - WMAP-7961
+    Original implementation - JIRA BeannieAP-7958
+    Updates - BeannieAP-7961
     """
 
     def setUp(self):

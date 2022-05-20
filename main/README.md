@@ -1,11 +1,11 @@
-# QA Functional Automation Lens
+# QA Functional Automation beans
 
 ## Pre-requisites
  - Python 3
  - Pip
 
 ## Purpose
-Testing framework for lens feature (to expand ;)
+Testing framework for beans feature (to expand ;)
 
 ## Requirements
 
@@ -22,7 +22,7 @@ Unzip downloaded file and place it in folder listed in system path.
 [Python desired capabilities](https://www.browserstack.com/automate/python)
 
 ### PIP ini file
-Some of the common code is located on nexus storage. 
+Some of the common code is located on magic_repo storage. 
 For python to know where it is pip.ini file must be populated with
 additional entry:
 

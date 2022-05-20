@@ -2,7 +2,7 @@ from CommonCode.JsonReader import JsonReader
 
 from TestPages.PageEnums import FiltersOption
 
-body_requests_json_file_path = './Utilities/Libs_API/WMBodyRequests.json'
+body_requests_json_file_path = './Utilities/Libs_API/BeannieBodyRequests.json'
 default_option_settings_json_file_path = './Utilities/Libs_API/APIFilterOptionsConstants.json'
 
 

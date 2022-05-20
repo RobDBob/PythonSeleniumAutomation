@@ -7,7 +7,7 @@ with open('requirements.txt') as fp:
     install_requires = fp.read()
 
 setuptools.setup(
-    name="wm-automation-common-ui",
+    name="Beannie-automation-common-ui",
     version="0.0.11",
     author="Framework Infrastructure",
     author_email="robert.deringer@company.com",

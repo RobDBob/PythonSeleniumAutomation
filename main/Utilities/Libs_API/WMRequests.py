@@ -10,7 +10,7 @@ class TokenExpiredException(Exception):
     pass
 
 
-class WMRequests(object):
+class BeannieRequests(object):
     def __init__(self):
         self.automation_config = Test_Context.run_config.load('TestAutomation')
 

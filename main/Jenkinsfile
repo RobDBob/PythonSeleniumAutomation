@@ -32,8 +32,8 @@ pipeline {
 		AWS_REGION = sh(returnStdout: true, script: "curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone | sed 's/\\(.*\\)[a-z]/\\1/'").trim()
 		SHORTCOMMIT = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
 
-		logDropFolder = "lens48/build_${env.BUILD_NUMBER}_${params.TargetEnvironment}"
-		nexusRepository = "test-logs"
+		logDropFolder = "beans48/build_${env.BUILD_NUMBER}_${params.TargetEnvironment}"
+		magic_repoRepository = "test-logs"
 		testLogsFileName = "test_logs.zip"
 		testScreenshotFileName = "screenshots.zip"
 	}
@@ -57,15 +57,15 @@ pipeline {
 				}
 			}
 			steps {
-				sh "./RunTestSuite.sh ${params.TargetEnvironment} ${env.BUILD_NUMBER} ${env.nexusRepository}:${env.logDropFolder} 'email@email.com'"
+				sh "./RunTestSuite.sh ${params.TargetEnvironment} ${env.BUILD_NUMBER} ${env.magic_repoRepository}:${env.logDropFolder} 'email@email.com'"
 
                 script {
                   	if (fileExists("${env.testLogsFileName}")) {
-                        nexus.publish(
+                        magic_repo.publish(
                             type: 'raw',
                             env: 'prod',
-                            credentials: nexus.getCredentials('us-east-1', 'prod'),
-                            repository: "${env.nexusRepository}",
+                            credentials: magic_repo.getCredentials('us-east-1', 'prod'),
+                            repository: "${env.magic_repoRepository}",
                             source_file: "${env.testLogsFileName}",
                             folder: "${env.logDropFolder}"
                         )
@@ -73,11 +73,11 @@ pipeline {
                 }
                 script {
                   	if (fileExists("${env.testScreenshotFileName}")) {
-                        nexus.publish(
+                        magic_repo.publish(
                             type: 'raw',
                             env: 'prod',
-                            credentials: nexus.getCredentials('us-east-1', 'prod'),
-                            repository: "${env.nexusRepository}",
+                            credentials: magic_repo.getCredentials('us-east-1', 'prod'),
+                            repository: "${env.magic_repoRepository}",
                             source_file: "${env.testScreenshotFileName}",
                             folder: "${env.logDropFolder}"
                         )

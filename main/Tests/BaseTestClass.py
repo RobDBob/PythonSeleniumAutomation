@@ -54,7 +54,7 @@ class BaseTestClass(unittest.TestCase):
         Redux database is used to persist some of the user / web state information between sessions.
         :return:
         """
-        self.driver.execute_script("indexedDB.deleteDatabase('Wood Mackenzie Lens--Redux Storage');")
+        self.driver.execute_script("indexedDB.deleteDatabase('Wood Mackenzie beans--Redux Storage');")
         PrintMessage(Const.RELOADING_BROSWER)
         self.driver.refresh()
 
@@ -187,7 +187,7 @@ class TestResultEx(object):
                 PrintMessage("SYSTEM: saving screenshot complete.")
 
     def _get_test_comment(self, err, test):
-        # WMAP-7975 disabling browser log dump
+        # BeannieAP-7975 disabling browser log dump
         # test_browser_log_comments = self._get_browser_log(test)
         test_browser_log_comments = ''
 

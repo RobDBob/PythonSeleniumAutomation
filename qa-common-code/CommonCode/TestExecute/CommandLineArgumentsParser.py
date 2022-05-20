@@ -141,7 +141,7 @@ class CommandLineArgumentsParser(object):
     @staticmethod
     def add_argument_report_hyperlink(parser):
         parser.add_argument("-l",
-                            dest='nexus_link',
+                            dest='magic_repo_link',
                             help=REPORT_HYPERLINK_MESSAGE,
                             type=str,
                             default='')

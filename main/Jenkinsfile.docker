@@ -10,16 +10,16 @@ pipeline {
     }
 
     stages {
-        stage ('Build Lens Automation Docker Image') {
+        stage ('Build beans Automation Docker Image') {
             steps {
                 script {
-                    docker.build('local/lens-automation-jenkins');
-                    creds = nexus.getCredentials('us-east-1', 'prod')
-                    nexus.publish(
+                    docker.build('local/beans-automation-jenkins');
+                    creds = magic_repo.getCredentials('us-east-1', 'prod')
+                    magic_repo.publish(
                         type: 'docker',
                         env: 'prod',
                         credentials: creds,
-                        dockerImage: 'local/lens-automation-jenkins',
+                        dockerImage: 'local/beans-automation-jenkins',
                         tag: 'stable',
                         pushLatest: false, //defaults to true, will always push latest tag unless set to false
                 )

@@ -8,7 +8,7 @@
 Set of utilities used by test automation framework.
 
 ## Usage
-pip install wm-automation-common
+pip install Beannie-automation-common
 
 Including:
 

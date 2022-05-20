@@ -235,8 +235,6 @@ class RunManager(object):
     @staticmethod
     def _set_exit_code(result):
         """
-        WMLDC-150 - QA: Create smoke test for query service
-
         Exit code set by test execution
         This is used in building process of tested projects (currently in Direct Data jenkins pipeline)
         :param result:
@@ -260,7 +258,7 @@ class RunManager(object):
 
         :param custom_pool_context: Pool context for multiprocessor execution
         :param path_to_users_file: list of users used in parallel testing, each process runs of a different user
-        :param post_execution_cb: list of callbacks to be executed post test execution i.e. upload results up to nexus
+        :param post_execution_cb: list of callbacks to be executed post test execution i.e. upload results up to magic_repo
         :return:
         """
         selected_group_tests = self._get_tests_suites_to_execute()
@@ -325,5 +323,5 @@ class RunManager(object):
             try_execute(callback, Test_Context)
 
         # this sets exit code for when automation is executed as a part of pipeline
-        # with specified test groups i.e. in direct lens project
+        # with specified test groups i.e. in direct beans project
         exit(self._set_exit_code(run_result.wasSuccessful()))

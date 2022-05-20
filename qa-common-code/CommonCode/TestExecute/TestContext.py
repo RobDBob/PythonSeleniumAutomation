@@ -5,7 +5,7 @@ import traceback
 import yaml
 
 from CommonCode.JsonReader import JsonReader
-from CommonCode.constants import NEXUS_MAIN_URL
+from CommonCode.constants import magic_repo_MAIN_URL
 
 
 class TestContext(object):
@@ -99,9 +99,9 @@ class TestContext(object):
 
     @property
     def report_hyper_link(self):
-        if hasattr(self, 'nexus_link'):
-            link = NEXUS_MAIN_URL + self.nexus_link
-            return f'<a href="{link}">Nexus test results.</a>'
+        if hasattr(self, 'magic_repo_link'):
+            link = magic_repo_MAIN_URL + self.magic_repo_link
+            return f'<a href="{link}">magic_repo test results.</a>'
         return ''
 
 

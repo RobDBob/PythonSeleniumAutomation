@@ -258,7 +258,7 @@ class TestRailAPIClient(object):
         """
         Given case type is partially matched against test case types retrieved from test rail
 
-        WMAP-7700 - Drive smoke testing execution via TestRail
+        BeannieAP-7700 - Drive smoke testing execution via TestRail
 
         Logic is: if automation_type is specified and its other than regression, then execute only those tests.
 
