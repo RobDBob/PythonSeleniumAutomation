@@ -1,0 +1,8 @@
+OUTPUT_FOLDER = "TestReport"
+COLUMN_TEST_CASE_ID = "TestCaseID"
+COLUMN_TEST_CASE_OWNER = "TestCaseOwner"
+COLUMN_TOTAL_EXECUTIONS = "TotalExecutions"
+COLUMN_PASS_RATE = "PassRate(%)"
+COLUMN_NUMBER_OF_HIGHS = "NumberOfHighs"
+COLUMN_NUMBER_OF_TESTS = "NumberOfTests"
+COLUMN_PERC = "PercOfHighs"
