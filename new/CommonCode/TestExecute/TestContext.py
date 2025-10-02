@@ -17,6 +17,8 @@ class TestContext(ConfigClass):
     # holds data for current execution
     currentTestClassName = None
     currentTestId = None
+    failedWindowHandle = None
+    initialWindowHandle = None
 
     # folder for evidence screenshots
     clientOnboardingEvidenceFolderName = None

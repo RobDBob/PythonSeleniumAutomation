@@ -212,11 +212,21 @@ def roundDecimalValueToFloat(decimalValue):
     return round(float(decimalValue), 2)
 
 
-def calculateValueByPercentage(percentage, totalValue):
+def calculateValueByPercentage(percentage, totalValue, roundOff=True):
     value = (float(totalValue) / 100) * percentage
-    return round(float(value), 2)
+    if roundOff:
+        return round(float(value), 2)
+    return int(float(value) * 100) / 100
 
 
 def calculatePercentageByValue(actualValue, totalValue):
     value = float(actualValue) * 100 / float(totalValue)
     return round(value, 0)
+
+
+def truncateFloatTo2Decimals(value):
+    """
+    Returns the float value truncated to 2 decimal places without rounding.
+    """
+    value = float(value)
+    return int(value * 100) / 100

@@ -8,11 +8,11 @@ def wrapInHyperlink(linkText, linkUrl):
     return f"<a href='{linkUrl}'>{linkText}</a>"
 
 
-def getJiraTicketStatusAsText(jiraIssueStatuses: dict):
+def getJiraTicketStatusAsText(jiraIssueStatuses: dict, delimiter="<br>"):
     textValue = ""
     for jiraIssueKey, jiraIssueValue in jiraIssueStatuses.items():
         if textValue:
-            textValue += "<br>"
+            textValue += delimiter
         textValue += f"{jiraIssueKey}:{jiraIssueValue}"
     return textValue
 

@@ -84,7 +84,7 @@ class HTMLReportGenerator:
                 "testCaseName": testCaseName,
                 "author": workItemDetails[0].get("fields", {}).get("System.AssignedTo", {}).get("displayName", ""),
                 "tags": tags,
-                "jiraIssueStatuses": self.jiraWrapper.getJiraTickets(tags),
+                "jiraIssueStatuses": self.jiraWrapper.getJiraTicketsStatuses(tags),
                 "urlTestCase": f"{PROJECT_URL}/_workitems/edit/{testCaseId}",
                 "urlResult": f"{PROJECT_URL}/_testManagement/runs?runId={self.testRunId}&_a=resultSummary&resultId={testResult.get('id')}",
                 "urlExecutionHistory": f"{PROJECT_URL}//_testPlans/_results?testCaseId={testCaseId}&contextPointId={testPoint}",

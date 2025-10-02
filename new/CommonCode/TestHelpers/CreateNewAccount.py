@@ -29,7 +29,7 @@ from TestPages.Wizards.WrapperSelectionWizard import WrapperSelectionWizard
 
 class CreateWrapIndividualOrJointAccount:
     def createNewClientNewBusiness(self, platformPage: PlatformPage, testData):
-        PrintMessage("Attempting to create New Client New Business for Account which will be blocked once executed")
+        PrintMessage("Attempting to create New Client New Business for Account which will be blocked once executed", inStepMessage=True)
         addNewClientWizard = platformPage.navigateToNewClientWizard()
         addNewClientWizard.setWithData(testData[DataEnums.NEW_CLIENT_TYPE])
 
@@ -188,7 +188,7 @@ class CreateWrapIndividualOrJointAccount:
         return accountSummaryPage, createdAccountNumber
 
     def createNewClientNewBusinessForISA(self, platformPage: PlatformPage, testData):
-        PrintMessage("Attempting to create New Client New Business for Account which will be blocked once executed")
+        PrintMessage("Attempting to create New Client New Business for Account which will be blocked once executed", inStepMessage=True)
         addNewClientWizard: AddNewClientWizard = platformPage.navigateToNewClientWizard()
         addNewClientWizard.setWithData(testData[DataEnums.NEW_CLIENT_TYPE])
 

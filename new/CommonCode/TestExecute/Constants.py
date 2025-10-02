@@ -6,7 +6,9 @@ TEST_HEAD = "\n >>>>>> " \
             "\n >>>>>> Test in progress: {0}" \
             "\n >>>>>>"
 
-TEST_TAIL = ">>>>>> Test execution done, tearDown\n\r"
+TEST_TEARDOWN = ">>>>>> Test tearDown"
+TEST_TAIL = ">>>>>> Test execution - done"
+RUN_TAIL = ">>>>>> All scheduled tests - done"
 RELOADING_BROSWER = "Reloading browser."
 
 START_TEST_EXECUTION = "\n >>>>>> " \

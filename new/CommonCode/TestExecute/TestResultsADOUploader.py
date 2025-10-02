@@ -104,6 +104,7 @@ class TestResultsADOUploader:
 
         testPointUpdateParams = []
         testOutcome = APIConstants.TEST_OUTCOME_PASSED if testObj.testOutcomePass else APIConstants.TEST_OUTCOME_FAILED
+        resultComment = f"MultiTestStage completed, next stage: {testObj.nextStageTestId}" if testObj.testOutcomePass else "Test failed, test run will be restarted"
 
         workItemDetails: dict = self.adoRequestsWorkItems.getWorkItemByID(testObj.currentStageTestId)
         workItemRevisions: dict = self.adoRequestsWorkItems.executeRequestGetResponse("GET",
@@ -119,7 +120,7 @@ class TestResultsADOUploader:
                       "testPoint": {"id": testObj.unitTestResult["testPointId"]},
                       "outcome": testOutcome,
                       "state": "Completed",
-                      "comment": f"MultiTestStage completed, next stage: {testObj.nextStageTestId}",
+                      "comment": resultComment,
                       "owner": workItemFields.get("System.AssignedTo"),
                       "runBy": workItemFields.get("System.AssignedTo")}
 

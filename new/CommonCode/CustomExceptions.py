@@ -17,6 +17,10 @@ class AccessDeniedException(Exception):
     pass
 
 
+class AccessBlockedException(Exception):
+    pass
+
+
 class APIExceptionSessionExpired(Exception):
     pass
 

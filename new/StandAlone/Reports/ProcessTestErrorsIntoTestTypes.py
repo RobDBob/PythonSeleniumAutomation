@@ -4,10 +4,13 @@ import re
 
 
 class ProcessTestErrorsIntoTestTypes:
-    textStartFailSection = "------------ Error log START for: "
-    textEndFailSection = "------------ Error log END for: "
+    START_FAIL_SECTION = "------------ Error log START for: "
+    END_FAIL_SECTION = "------------ Error log END for: "
 
-    def __init__(self):
+    OUTPUT_FILE_NAME = "LogProcessing_CommonErrors.txt"
+
+    def __init__(self, folderPath):
+        self.folderPath = folderPath
         self.errorTypes: list[dict] = {}
 
     def _updateErrorTypes(self, foundErrorsTypes, testName):
@@ -22,7 +25,7 @@ class ProcessTestErrorsIntoTestTypes:
         return [idx for idx, k in enumerate(listStruct) if searchTerm in k]
 
     def _getEndSectionIndex(self, fileContent, startSectionIndex, testName):
-        endSectionText = self.textEndFailSection + testName
+        endSectionText = self.END_FAIL_SECTION + testName
 
         endSectionIndex = self._indicesIn(fileContent[startSectionIndex:], endSectionText)
         if endSectionIndex:
@@ -52,7 +55,7 @@ class ProcessTestErrorsIntoTestTypes:
     def _processFile(self, filePath):
         with open(filePath, "r", encoding="utf-8") as fp:
             fileContent = [line.rstrip("\n") for line in fp.readlines()]
-            failedTestSectionIndices = self._indicesIn(fileContent, self.textStartFailSection)
+            failedTestSectionIndices = self._indicesIn(fileContent, self.START_FAIL_SECTION)
             for startSectionIndex in failedTestSectionIndices:
                 matchObj = re.search("test_C(.*)", fileContent[startSectionIndex])
                 if not matchObj:
@@ -65,10 +68,12 @@ class ProcessTestErrorsIntoTestTypes:
 
                 self._updateErrorTypes(foundErrorsTypes, testName)
 
-    def _writeOutputFile(self, outputFileName):
-        with open(outputFileName, "w", encoding="utf-8") as output:
+    def _writeOutputFile(self):
+        outputFilePath = os.path.join(self.folderPath, self.OUTPUT_FILE_NAME)
+
+        with open(outputFilePath, "w", encoding="utf-8") as output:
             for errorType in sorted(self.errorTypes):
-                output.write(f"\n\n>>> Error type: {errorType}\n")
+                output.write(f"\n\n>>> Error type: {errorType}, fail count: {len(self.errorTypes[errorType])}\n")
                 for testName in self.errorTypes[errorType]:
                     output.write(f"{testName}\n")
 
@@ -78,7 +83,7 @@ class ProcessTestErrorsIntoTestTypes:
             for testName in self.errorTypes[errorType]:
                 print(testName)
 
-    def processTestErrorsIntoTestTypes(self, testLogsPath):
+    def processTestErrorsIntoTestTypes(self):
         """
         Class public method.
         Takes path to log files. Open each log file in a sequence and processess its contents.
@@ -86,25 +91,22 @@ class ProcessTestErrorsIntoTestTypes:
         :param test_logs_path:
         :return:
         """
-        fileList = os.listdir(testLogsPath)
-        outputFileName = 'CommonErrorTypes.txt'
+        fileList = os.listdir(self.folderPath)
 
         for fileName in fileList:
-            if 'main' in fileName or "Tests" not in fileName:
+            if "main" in fileName or "Tests" not in fileName:
                 continue
-            self._processFile(os.path.join(testLogsPath, fileName))
+            self._processFile(os.path.join(self.folderPath, fileName))
 
-        self._writeOutputFile(outputFileName)
+        self._writeOutputFile()
         self._writeOutputToConsole()
-
-        return os.path.join(os.getcwd(), outputFileName)
 
 
 def configureArgParse():
     helpText = "Specify folder where log files are located. Expecting testRunDiary*.log files"
     parser = argparse.ArgumentParser(prefix_chars='-')
     parser.add_argument('-f',
-                        dest='folderPath',
+                        dest="folderPath",
                         help=helpText,
                         required=True)
     return parser.parse_args()
@@ -116,5 +118,5 @@ if __name__ == "__main__":
 
     assert os.path.isdir(folderPath)
 
-    test_log_processor = ProcessTestErrorsIntoTestTypes()
-    test_log_processor.processTestErrorsIntoTestTypes(folderPath)
+    test_log_processor = ProcessTestErrorsIntoTestTypes(folderPath)
+    test_log_processor.processTestErrorsIntoTestTypes()

@@ -1,0 +1,285 @@
+[
+  {
+      "Client": {
+          "existingPlatformAccountId": "",
+          "sourceClientID": 1,
+          "clientType": "Individual",
+          "title": "Miss",
+          "firstNames": "Aria",
+          "surname": "Dixon",
+          "dateOfBirth": "20/11/1956",
+          "gender": "Female",
+          "maritalStatus": "Married / Civil partnership",
+          "nationalInsuranceNumber": "HX207591C",
+          "nationality": [
+              {
+                  "nationality": "UNITED KINGDOM"
+              }
+          ],
+          "taxResidencyOtherThanUK": "No",
+          "clientPrimaryCitinzenship": "Yes",
+          "retirementDate": "",
+          "retirementAge": 56,
+          "occupation": "Marketing Manager",
+          "employmentStatus": "Employed",
+          "annualSalary": 66192,
+          "sourceOfWealth": "Other",
+          "Address": [
+              {
+                  "addressType": "Business",
+                  "addressLine1": "39 Grover Drive",
+                  "addressLine2": "",
+                  "addressLine3": "",
+                  "town": "Poole",
+                  "county": "",
+                  "country": "UNITED KINGDOM",
+                  "postCode": "PE35 8UN",
+                  "primaryCorrespondenceAddress": "Y"
+              }
+          ],
+          "ContactDetails": {
+              "emailAddress": "Aria.Dixon@twitter.com",
+              "mobileNumberCountryCode": "UK",
+              "mobileNumber": "07396379513",
+              "homeNumberCountryCode": "UK",
+              "homeNumber": "01091853633",
+              "contactNumberCountryCode": "",
+              "contactNumber": ""
+          },
+          "Preferences": {
+              "goPaperless": "Y",
+              "clientInstructionRecivedForPaperless": "Y",
+              "vulnerableCondition": "N"
+          },
+          "BankAccounts": [
+              {
+                  "owner": "Individual",
+                  "accountName": "Aria Dixon",
+                  "accountSortCode": "000013",
+                  "accountNumber": "00001003",
+                  "bankName": "Bank of Scotland",
+                  "bankAddress": "5 Bank Street,Edinburgh, Eh1 1BB",
+                  "accountStartDate": "01/01/2020",
+                  "accountEndDate": "",
+                  "accountVerified": "N",
+                  "directDebit": "Y",
+                  "mandateType": "Paper",
+                  "clientUnderstandsDirectDebitTerms": "Y",
+                  "mandateStartDate": "01/01/2022",
+                  "mandateEndDate": "",
+                  "primaryWithdrawalAccount": "Y"
+              }
+          ],
+          "RelatedEntities": [],
+          "Adviser": {
+              "firmName": "Grange Wealth Management",
+              "adviserAccountID": 1001,
+              "adviserFirstName": "GRANGEWM-1/",
+              "adviserSurname": "EE65-GRJM1",
+              "branchName": "",
+              "adviserIRNReferenceNumber": "",
+              "FRNFCANumber": 475973,
+              "ifaBranchID": 11452,
+              "abrdnAdviserReference": "",
+              "legacyAdviserReference": "1/TEST"
+          },
+          "Account": [
+              {
+                  "subAccountId": "",
+                  "accountName": "Aria Dixon",
+                  "accountType": "Single",
+                  "adviceType": "discretionary",
+                  "finacialAdviceGivenFlag": "Yes",
+                  "disinvestmentStrategy": "Proportional",
+                  "Product": [
+                      {
+                        "Charges": {
+                            "specialTermsReference": "Charge Structure 5",
+                            "ongoingAdviserChargeType": "Percentage",
+                            "ongoingChargeFrequency": "Monthly",
+                            "ongoingChargeAmount": 0.3,
+                            "ongoingChargeBasis": "WhatIsThis?",
+                            "excludeChargesFromIllustration": "Y"
+                        },
+                          "productId": 1,
+                          "regularWithdrawals": "Yes",
+                          "customPPName": "",
+                          "confirmAllFlag": "N",
+                          "productType": "ISA",
+                          "productStartDate": "01/02/2022",
+                          "productEndDate": "",
+                          "isaSubscriptionsTYE": 500,
+                          "firstSubscriptionTYE": "01/06/2024",
+                          "distributionOption": "REINVEST",
+                          "ProductInvestmentStrategy": [
+                              {
+                                  "strategyReference": "Default",
+                                  "FundHoldings": [
+                                      {
+                                          "fundName": "Barings EstrnTrst A Acc GBP",
+                                          "citiCode": "BO11",
+                                          "ISIN": "GB0000799923",
+                                          "sedol": "0079992",
+                                          "percentageAllocation": "100.0",
+                                          "units": 7893,
+                                          "estimatedCashAmount": 77988,
+                                          "taxBookCost": 8786,
+                                          "aquisitiondDate": "25/06/2007",
+                                          "reRegisterFlag": "Y"
+                                      }
+                                  ]
+                              },
+                              {
+                                  "strategyReference": "Transfer",
+                                  "FundHoldings": [
+                                      {
+                                          "fundName": "JOHCM UK Oprtnits Y Acc",
+                                          "citiCode": "I62S",
+                                          "ISIN": "GB00B95HP811",
+                                          "sedol": "B95HP81",
+                                          "percentageAllocation": "50.0",
+                                          "units": 7636,
+                                          "estimatedCashAmount": 26632,
+                                          "taxBookCost": 40923,
+                                          "aquisitiondDate": "26/04/2020",
+                                          "reRegisterFlag": "Y"
+                                      },
+                                      {
+                                          "fundName": "GS GblStratMcrBdPfl RH £",
+                                          "citiCode": "FNRB",
+                                          "ISIN": "LU1111996556",
+                                          "sedol": "BQVBMX0",
+                                          "percentageAllocation": "50.0",
+                                          "units": 7807,
+                                          "estimatedCashAmount": 65355,
+                                          "taxBookCost": 69240,
+                                          "aquisitiondDate": "04/06/2020",
+                                          "reRegisterFlag": "Y"
+                                      }
+                                  ]
+                              }
+                          ],
+                          "MoneyIn": {
+                              "PaymentsIn": [
+                                  {
+                                      "investmentStrategyToBeUsed": "Default",
+                                      "paymentType": "Regular",
+                                      "contributer": "Client",
+                                      "amount": 100,
+                                      "paymentFrequency": "Monthly",
+                                      "paymentMethod": "Direct Debit",
+                                      "paymentMethodEnum": "Direct Debit",
+                                      "bankAccountReference": "00001003",
+                                      "paymentFromDate": "20/06/2025",
+                                      "continueUntil": "Until Notified",
+                                      "paymentToDate": "",
+                                      "pensionFundsSource": "Individual",
+                                      "paymentsToIncrease": "Manually",
+                                      "thirdPartyDetails": {
+                                          "thirdpartyelement1_tobeadded": "infonotfordayone",
+                                          "thirdpartyelement2_tobeadded": "infonotfordayone"
+                                      }
+                                  }
+                              ],
+                              "Transfers": [
+                                  {
+                                      "transferType": "S&S ISA",
+                                      "investmentStrategyToBeUsed": "Transfer",
+                                      "transferinspecie": "No",
+                                      "transferringISAType": "S&S ISA",
+                                      "firstDateOfTransferringIsa": "01/03/2024",
+                                      "existingPensionTypeToBeTransferred": "",
+                                      "subscriptionsIncludedInTheTransfer": "CURRENT",
+                                      "transferFromFlexibleISA": "No",
+                                      "estimatedISACurrentYearSubscription": 10000.00,
+                                      "estimatedTransferBalance": 75133,
+                                      "planNumber": "AV7777777",
+                                      "cedingProvider": "Aviva Investors UK Fd Serv"
+                                  },
+                                  {
+                                      "transferType": "S&S ISA",
+                                      "investmentStrategyToBeUsed": "Transfer",
+                                      "transferinspecie": "Yes",
+                                      "transferringISAType": "S&S ISA",
+                                      "firstDateOfTransferringIsa": "01/01/2001",
+                                      "existingPensionTypeToBeTransferred": "ISA",
+                                      "subscriptionsIncludedInTheTransfer": "NON_CURRENT",
+                                      "TransferFromFlexibleISA": "No",
+                                      "EstimatedISACurrentYearSubscription": "",
+                                      "estimatedTransferBalance": 75133,
+                                      "planNumber": "AG98765",
+                                      "cedingProvider": "Aegon Investment Solutions Limited"
+                                  }
+                              ]
+                          }
+                      },
+                      {
+                        "Charges": {
+                            "specialTermsReference": "Charge Structure 5",
+                            "ongoingAdviserChargeType": "Percentage",
+                            "ongoingChargeFrequency": "Monthly",
+                            "ongoingChargeAmount": 0.3,
+                            "ongoingChargeBasis": "WhatIsThis?",
+                            "excludeChargesFromIllustration": "Y"
+                        },
+                          "productId": 2,
+                          "regularWithdrawals": "No",
+                          "customPPName": "Boat Purchase",
+                          "confirmAllFlag": "N",
+                          "productType": "Personal Portfolio",
+                          "productStartDate": "01/02/2022",
+                          "productEndDate": "",
+                          "isaSubscriptionsTYE": "",
+                          "firstSubscriptionTYE": "",
+                          "distributionOption": "REINVEST",
+                          "ProductInvestmentStrategy": [
+                              {
+                                  "strategyReference": "Default",
+                                  "FundHoldings": [
+                                      {
+                                          "fundName": "Barings EstrnTrst A Acc GBP",
+                                          "citiCode": "BO11",
+                                          "ISIN": "GB0000799923",
+                                          "sedol": "0079992",
+                                          "percentageAllocation": "100.0",
+                                          "units": 7893,
+                                          "estimatedCashAmount": 77988,
+                                          "taxBookCost": 8786,
+                                          "aquisitiondDate": "25/06/2007",
+                                          "reRegisterFlag": "Y"
+                                      }
+                                  ]
+                              }
+                          ],
+                          "MoneyIn": {
+                              "PaymentsIn": [
+                                  {
+                                      "investmentStrategyToBeUsed": "Default",
+                                      "paymentType": "Single",
+                                      "contributer": "Client",
+                                      "amount": 500,
+                                      "paymentFrequency": "Monthly",
+                                      "paymentMethod": "Direct Debit",
+                                      "paymentMethodEnum": "Direct Debit",
+                                      "bankAccountReference": "00001003",
+                                      "paymentFromDate": "20/06/2025",
+                                      "continueUntil": "Until Notified",
+                                      "paymentToDate": "02/12/2025",
+                                      "pensionFundsSource": "Individual",
+                                      "paymentsToIncrease": "Manually",
+                                      "thirdPartyDetails": {
+                                          "thirdpartyelement1_tobeadded": "infonotfordayone",
+                                          "thirdpartyelement2_tobeadded": "infonotfordayone"
+                                      }
+                                  }
+                              ],
+                              "Transfers": []
+                          }
+                      }
+                  ]
+              }
+          ],
+          "finalAttributePlaceholder": "end"
+      }
+  }
+]

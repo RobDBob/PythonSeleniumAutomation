@@ -48,10 +48,12 @@ class BrowserSetup:
 
         if self.testContext.getSetting(ConfigOptions.RUN_HEADLESS):
             if self.testContext.getSetting(ConfigOptions.RUN_SHELL_BINARY):
-                PrintMessage(f"Browser Setup > HEADLESS > Using chrome-shell binary: '{self.browserConfig.getSetting(ConfigOptions.CHROME_SHELL_PATH)}'")
+                PrintMessage(
+                    f"Browser Setup > HEADLESS > Using chrome-shell binary: '{self.browserConfig.getSetting(ConfigOptions.CHROME_SHELL_PATH)}'",
+                    inStepMessage=True)
                 chromeOptions.binary_location = self.browserConfig.getSetting(ConfigOptions.CHROME_SHELL_PATH)
             else:
-                PrintMessage("Browser Setup > HEADLESS > Using chrome")
+                PrintMessage("Browser Setup > HEADLESS > Using chrome", inStepMessage=True)
             chromeOptions.add_argument("--headless")
 
         if platform.system() == "Linux":

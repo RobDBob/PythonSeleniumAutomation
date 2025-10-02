@@ -16,6 +16,7 @@ from CommonCode.TestExecute.Logging import PrintMessage
 from CommonCode.TestExecute.Objects.TestBucket import TestBucket
 from CommonCode.TestExecute.Objects.TestsResultsContainer import TestsResultsContainer
 from CommonCode.TestExecute.Objects.TestsToRunContainer import TestsToRunContainer
+from CommonCode.TestExecute.PyStormTestResult import PyStormTextTestResult
 from CommonCode.TestExecute.TestContext import Test_Context, TestContext
 from CommonCode.TestExecute.TestResultsADOUploader import TestResultsADOUploader
 
@@ -80,6 +81,7 @@ def executeSingleSuiteAndUploadResults(testBucket: TestBucket, topLevelTestConte
 
     # noinspection PyTypeChecker
     runner = unittest.TextTestRunner(stream=sys.stdout)
+    runner.resultclass = PyStormTextTestResult
 
     try:
         testResults = runner.run(testSuite)
@@ -252,6 +254,7 @@ class RunManager:
         """
         runResult = None
         runner = unittest.TextTestRunner(stream=sys.stdout)
+        runner.resultclass = PyStormTextTestResult
         luf = self.testContext.getSetting(ConfigOptions.LOOP_UNTIL_FAILURE)
         lufCounter = 0
 

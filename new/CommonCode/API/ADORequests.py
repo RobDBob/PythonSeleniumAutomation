@@ -1,13 +1,11 @@
 import json
 from enum import Enum
 from os import environ
+import certifi
 import requests
 from retry import retry
 from CommonCode.API import APIConstants
 from CommonCode.TestExecute.Logging import PrintMessage
-
-requests.urllib3.disable_warnings()
-# Remember! PAT to basic auth: base64.b64encode((":" + pat).encode()).decode(), then authentication: Basic + base64Token
 
 
 class AccessTokenEnum(Enum):
@@ -17,11 +15,10 @@ class AccessTokenEnum(Enum):
 
 
 class ADORequests:
-    # Basic auth, Personal Access Token: TestPlanAPI, expires on 13/06/2025; TestManagement Read & Write
     orgAPIURL = "https://dev.azure.com/AAMDev/Platform%20Transformation/_apis/{0}"
 
     def __init__(self, tokenType: AccessTokenEnum):
-        self.authorization = f'Basic {self._getAccessToken(tokenType)}'
+        self.adoPat = self._getAccessToken(tokenType)
 
     def _getAccessToken(self, tokenType: AccessTokenEnum):
         accessToken = environ.get(tokenType.name)
@@ -30,13 +27,13 @@ class ADORequests:
 
     def executeRequest(self, method, url, **kwargs):
         session = requests.Session()
-        session.headers.update({"Authorization": self.authorization})
+        session.auth = ('', self.adoPat)
         session.headers.update({"Content-Type": "application/json"})
         session.headers.update({"Accept": "*/*"})
         session.headers.update({"Accept-Encoding": "gzip, deflate, br"})
 
         kwargs.setdefault("allow_redirects", True)
-        kwargs["verify"] = False
+        kwargs["verify"] = certifi.where()
 
         if "params" not in kwargs:
             kwargs["params"] = {}
@@ -197,14 +194,17 @@ class ADORequests:
             return response.get("id")
         return None
 
-    def updateTestRun(self, runId, runState="Completed"):
+    def updateTestRun(self, runId, **kwargs):
         """
         Creates test run, returns run Id
         https://learn.microsoft.com/en-us/rest/api/azure/devops/test/runs/create?view=azure-devops-rest-7.1&tabs=HTTP
         Valid states: Unspecified ,NotStarted, InProgress, Completed, Waiting, Aborted, NeedsInvestigation
+
+        kwargs = Request Body
         """
         runData = {
-            "state": runState,
+            "state": kwargs.get("runState", "Completed"),
+            "errorMessage": kwargs.get("runState", "errorMessage"),
         }
         return self.executeRequestGetResponse("PATCH", ADORequests.orgAPIURL.format(f"test/runs/{runId}"), data=json.dumps(runData))
 

@@ -52,7 +52,7 @@ class DocumentDownloader:
         parsedURL = urlparse(href)
         parameterValue = next(iter(parse_qs(parsedURL.query).get(parameterName, [])), "")
         if not parameterValue:
-            PrintMessage(f"Failed to extract parameter '{parameterName}' from href '{href}'")
+            PrintMessage(f"Failed to extract parameter '{parameterName}' from href '{href}'", inStepMessage=True)
 
         if parameterName == self.HREF_PARAM_FILE_NAME:
             # remove white spaces
@@ -69,7 +69,7 @@ class DocumentDownloader:
 
         existingFiles = os.listdir(downloadFolder)
         existingFiles = [k.lower() for k in existingFiles]
-        PrintMessage(f"Existing files: {existingFiles}")
+        PrintMessage(f"Existing files: {existingFiles}", inStepMessage=True)
 
         for leftOverFile in potentialLeftOverFiles:
             if leftOverFile in existingFiles:
@@ -82,16 +82,16 @@ class DocumentDownloader:
 
     def cleanDownloadFolder(self):
         existingFiles = os.listdir(self.downloadFolder)
-        PrintMessage(f"Deleting any existing files: {existingFiles}")
+        PrintMessage(f"Deleting any existing files: {existingFiles}", inStepMessage=True)
         for currentFile in existingFiles:
             filePath = os.path.join(self.downloadFolder, currentFile)
             os.remove(filePath)
             FileHelper.waitForFileToBeRemoved(filePath)
-        PrintMessage(f"Download folder '{self.downloadFolder}' contents: '{os.listdir(self.downloadFolder)}'")
+        PrintMessage(f"Download folder '{self.downloadFolder}' contents: '{os.listdir(self.downloadFolder)}'", inStepMessage=True)
 
     @retry(exceptions=(TimeoutException, StaleElementReferenceException), tries=3)
     def waitForDocumentGenerationToFinish(self):
-        PrintMessage("downloadDocuments > _waitForDocumentGenerationToFinish")
+        PrintMessage("downloadDocuments > _waitForDocumentGenerationToFinish", inStepMessage=True)
         waitcondition = EC.visibility_of_just_one_element_located(self.SPINNER_CSS_LOCATOR)
         try:
             WebDriverWait(self.webdriver, 80).until(waitcondition, "Expecting spinner to appear")
@@ -127,7 +127,7 @@ class DocumentDownloader:
         baseTestObject.click()
         downloadedFilePath = FileHelper.waitForNewFile(existingFiles, self.downloadFolder)
         downloadedFileNewName = os.path.join(self.downloadFolder, newFileName)
-        PrintMessage(f"Renamed downloaded file: '{downloadedFilePath}' to '{downloadedFileNewName}'")
+        PrintMessage(f"Renamed downloaded file: '{downloadedFilePath}' to '{downloadedFileNewName}'", inStepMessage=True)
         os.rename(downloadedFilePath, downloadedFileNewName)
         return downloadedFileNewName
 
@@ -160,7 +160,7 @@ class DocumentDownloader:
         """
         documentNames.reverse()
         for documentName in documentNames:
-            PrintMessage(f"Waiting for document: '{documentName}' generation to complete")
+            PrintMessage(f"Waiting for document: '{documentName}' generation to complete", inStepMessage=True)
             locator = f"//span[text()='{documentName}']//following-sibling::{self.SPINNER_LOCATOR}"
             waitcondition = EC.presence_of_element_located((By.XPATH, locator))
             WebDriverWait(self.webdriver, self.SPINNER_TIME_OUT).until_not(waitcondition)

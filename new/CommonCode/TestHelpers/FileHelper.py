@@ -13,7 +13,7 @@ def waitForFileToBeRemoved(filePath):
 @retry(exceptions=FileNotReadyException, delay=10, tries=5)
 def waitForNewFile(existingFiles, downloadFolder):
     currentFiles = os.listdir(downloadFolder)
-    PrintMessage(f"Current files: {currentFiles}")
+    PrintMessage(f"Current files: {currentFiles}", inStepMessage=True)
     if len(currentFiles) == len(existingFiles):
         raise FileNotReadyException("File not downloaded yet")
     if [k for k in currentFiles if "crdownload" in k]:

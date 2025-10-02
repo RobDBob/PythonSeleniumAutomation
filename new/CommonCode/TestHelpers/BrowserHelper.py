@@ -29,7 +29,7 @@ class BrowserHelper:
                 PrintMessage(f"Error code: {e.code}")
 
     def _saveScreenshot(self, filePath):
-        PrintMessage(f"Saving screenshot {filePath}")
+        PrintMessage(f"SYSTEM: Saving screenshot {filePath}")
         self._removeExistingScreenshot(filePath)
 
         tryExecute(Screenshot(self.webdriver).fullScreenshot, imagePath=filePath)
