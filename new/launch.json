@@ -1,0 +1,179 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Test",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "StandAlone.ExecuteTest",
+            "justMyCode": false,
+            "args": ["-c", "ue1chromeTestServer", "-t",  "1624913"],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Test-QRP",
+            "type": "debugpy",
+            "module": "StandAlone.ExecuteTest",
+            "request": "launch",
+            "justMyCode": true,
+            "args": ["-c", "te5chromeTestServer", "-t", "1198328", "-testFolder", "LegacyQuickRegression"],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "TestMultiDay",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "StandAlone.MultiDayTests.MultiDayTestsExecute",
+            "justMyCode": true,
+            "args": ["-c", "ue1chromeTestServer", "-testPlan",  "1463138"],
+            "console": "integratedTerminal",
+            "env": {
+            }
+        },
+        {
+            "name": "TestClass",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "StandAlone.ExecuteTest",
+            "justMyCode": true,
+            "args": ["-c", "ue1chromeTestServer", "-class", "TestsAuthoriseProcessFlagForApproval", "-testFolder", "Advisor"],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "RunAutomation",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "StandAlone.RunUIAutomation",
+            "justMyCode": true,
+            "args": ["-c", "ue1chromeTestServer", "-testPlan", "1463138"], //"--dryRun"],
+            "console": "integratedTerminal",
+            "env": {
+            }
+        },
+        {
+            "name":"DataInsertionProd",
+            "type":"debugpy",
+            "request":"launch",
+            "module":"StandAlone.DataInsertionPOC.RunScript",
+            "console": "integratedTerminal",
+            "env": {
+                // "pipelineRun": "true",
+                "loginUserName": "rderinger2",
+                "loginUserPassword": "MojeHasloMojeLogin",
+                "loginUrl": "https://wrap.abrdn.com",
+                "loginType": "advisorUniPass"
+            }
+        },
+        {
+            "name":"DataInsertionTest",
+            "type":"debugpy",
+            "request":"launch",
+            "module":"StandAlone.DataInsertionPOC.RunScript",
+            "console": "integratedTerminal",
+            // "env": {
+            //     "pipelineRun": "false",
+            //     "loginUserName": "rderinger2",
+            //     "loginUserPassword": "MojeHasloMojeLogin",
+            //     "loginUrl": "https://wrap.abrdn.com",
+            //     "loginType": "advisorUniPass"
+            // }
+        },
+        {
+            "name":"StandAlone_FindAccount",
+            "type":"debugpy",
+            "request":"launch",
+            "module":"StandAlone.FindAccount",
+            "console": "integratedTerminal",
+            "args": ["-initialAccountNumber", "1800", "-envName", "ue1"],
+        },
+        {
+            "name":"StandAlone_RejectTrustAuthProcesses",
+            "type":"debugpy",
+            "request":"launch",
+            "module":"StandAlone.SetupScripts.CleanUpAuthProcesses",
+            "console": "integratedTerminal",
+            "args": ["-c", "ue1chromeTestServer"]
+        },
+        {
+            "name": "StandAlone_HTMLReportGenerator",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "StandAlone.Reports.AutomationRunReport.HTMLReportGenerator",
+            "args": ["2639916"],
+            "justMyCode": true,
+            "console": "integratedTerminal",
+            "env": {
+            }
+        },
+        {
+            "name": "StandAlone_CleanUpAuthProcesses",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "StandAlone.SetupScripts.CleanUpAuthProcesses",
+            "args": ["-c", "ue1chromeTestServer"],
+            "justMyCode": true,
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "StandAlone_NotifyTestAuthors",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "StandAlone.Reports.AutomationRunReport.UpdateTestAuthors",
+            "justMyCode": true,
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "StandAlone_TestResultsAzureUploader",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "StandAlone.Reports.TestResultsAzureUploader",
+            "args": ["-runID", "2641968"],
+            "justMyCode": true,
+            "console": "integratedTerminal",
+            "env": {
+            }
+        },
+        {
+            "name": "StandAlone_ProcessTestErrorsIntoTestTypes",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "StandAlone.Reports.ProcessTestErrorsIntoTestTypes",
+            "args": ["-f", "testLogging"],
+            "justMyCode": true,
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "StandAlone_ProcessTestTimeRuns",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "StandAlone.Reports.ProcessTestTimeRuns",
+            "args": ["-f", "testLogging"],
+            "justMyCode": true,
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "StandAlone_PowerBITeamsNotification",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "CommonCode.API.PowerAutomate.PowerBIToTeamsNotifications",
+            "justMyCode": true,
+            "console": "integratedTerminal",
+            "args": ["-runID", "2643714"],
+            "env": {
+            }
+        },
+        {
+            "name": "StandAlone_MultiDayTeamsNotification",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "CommonCode.API.PowerAutomate.MultiDayTestTeamsNotification",
+            "justMyCode": true,
+            "console": "integratedTerminal",
+            "env": {
+            }
+        }
+    ]
+}
