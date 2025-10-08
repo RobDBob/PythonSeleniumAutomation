@@ -1,0 +1,22 @@
+repos:
+  - repo: https://github.com/pycqa/isort
+    rev: 6.0.1
+    hooks:
+      - id: isort
+        name: isort (python)
+  - repo: https://github.com/hhatto/autopep8
+    rev: v2.3.2  # select the tag or revision you want, or run `pre-commit autoupdate`
+    hooks:
+    -   id: autopep8
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
+        args:
+            [
+            "-rn", # Only display messages
+            "-sn", # Don't display the score
+            ]
