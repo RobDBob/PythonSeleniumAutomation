@@ -1,3 +1,0 @@
-BROWSER: "chrome"
-DRIVER_PATH: "C:/webdriver/chromedriver.exe"
-CHROME_SHELL_PATH: "C:/webdriver/chrome-headless-shell-win64/chrome-headless-shell.exe"

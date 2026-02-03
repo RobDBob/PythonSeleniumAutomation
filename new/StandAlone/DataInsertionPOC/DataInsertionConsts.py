@@ -1,8 +1,0 @@
-ENV_PIPELINE_RUN = "pipelineRun"
-ENV_USER_NAME = "loginUserName"
-ENV_USER_PASSWORD = "loginUserPassword"
-ENV_SRC_JSON_FILE = "srcFileName"
-ENV_LOGIN_TYPE = "loginType"
-ENV_LOGIN_URL = "loginUrl"
-LOGIN_TYPE_INTERNAL = "internalUser"
-LOGIN_TYPE_UNIPASS = "advisorUniPass"
